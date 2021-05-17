@@ -1,0 +1,10 @@
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: row;
+}
+
+.shop-item {
+    display: flex;
+    flex-direction: column;
+}
