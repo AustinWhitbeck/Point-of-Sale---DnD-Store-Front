@@ -1,3 +1,10 @@
+body {
+    font-family: 'Amatic SC';
+}
+h1 {
+    text-align: center;
+}
+
 .menu-options {
     display: flex;
     width: 100vw;
@@ -38,6 +45,7 @@ li {
     border: solid black 1px;
     margin: 20px 20px;
     justify-content: space-between;
+    
 }
 
 .product-footer {
@@ -47,10 +55,11 @@ li {
     justify-content: space-between;
 }
 .image-container {
-    border: solid black 1px;
-    margin: 20px 10px;
+    margin: 10px 20px 0px 20px;
     display: flex;
-    align-items: center;
+    height: 200px;
+    width: 200px;
+    align-self: center;
 }
 
 img {
@@ -59,6 +68,23 @@ img {
 
 }
 
+.shelf {
+    display: flex;
+    justify-content: center;
+    height: 46px;
+    background-image: url(/item-images/shelf-image.png);
+    
+}
+
+.product-name {
+    height: 27px;
+    width: 100px;
+    background-image: url(/item-images/scroll-image.png);
+    background-size: contain;
+    margin-top: 0;
+    text-align: center;
+}
+
 .hidden {
-    display:none;
+    display: none;
 }
