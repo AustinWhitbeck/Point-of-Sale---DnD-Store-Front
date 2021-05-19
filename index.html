@@ -16,10 +16,12 @@
         <div class="menu-options">
             <div class="menu-item">Shop</div>
             <div class="menu-item">Inventory</div>
+            <div class="menu-item">Cart</div>
         </div>
     </div>
     <nav>
         <ul>
+            <li class="product-category" id="all-options">All</li>
             <li class="product-category" id="equip-nav">Equipment</li>
             <li class="product-category" id="spells-nav">Spells</li>
             <li class="product-category" id="skills-nav">Skills</li>
@@ -30,17 +32,17 @@
 
 
 
-
+<!-- Shop elements -->
     <div class="main-content">
         <div class="shop-item image-container-equip">
             <div class="image-container">
                 <img src = "./item-images/frostburn-equipment.jpg" alt="Fiery sword">
             </div>
             <div class="shelf">
-                <p class="product-name">Equip product</p>
+                <p class="product-name">Frostburn</p>
             </div>
             <div class="product-footer">
-                <div value="#">Price</div>
+                <div class="price-tag" value="#"><img class="coin-img" src="gold-coin-icon.png">Price</div>
                 <button class="button">Add to cart</button>
             </div>
         </div>
@@ -49,10 +51,10 @@
                 <img src = "./item-images/armor-equipment.jpeg" alt="text">
             </div>
             <div class="shelf">
-                <p class="product-name">Equip product</p>
+                <p class="product-name">Plate Armor</p>
             </div>
             <div class="product-footer">
-                <div value="#">Price</div>
+                <div class="price-tag" value="#"><img class="coin-img" src="gold-coin-icon.png">Price</div>
                 <button class="button">Add to cart</button>
             </div>
         </div>
@@ -61,10 +63,10 @@
                 <img src = "./item-images/bag-of-holding-equipment.jpeg" alt="text">
             </div>
             <div class="shelf">
-                <p class="product-name">Equip product</p>
+                <p class="product-name">Bag of Holding</p>
             </div>
             <div class="product-footer">
-                <div value="#">Price</div>
+                <div class="price-tag" value="#"><img class="coin-img" src="gold-coin-icon.png">Price</div>
                 <button class="button">Add to cart</button>
             </div>
         </div>
@@ -73,10 +75,10 @@
                 <img src = "./item-images/helm-of-many-selves-equipment.jpg" alt="text">
             </div>
             <div class="shelf">
-                <p class="product-name">Equip product</p>
+                <p class="product-name">Many Selves</p>
             </div>
             <div class="product-footer">
-                <div value="#">Price</div>
+                <div class="price-tag" value="#"><img class="coin-img" src="gold-coin-icon.png">Price</div>
                 <button class="button">Add to cart</button>
              </div>   
         </div>
@@ -85,10 +87,10 @@
                 <img src = "./item-images/entomb-in-ice-spell.jpg" alt="text">
             </div>
             <div class="shelf">
-                <p class="product-name">Spell product</p>
+                <p class="product-name">Entomb in Ice</p>
             </div>
             <div class="product-footer">
-                <div value="#">Price</div>
+                <div class="price-tag" value="#"><img class="coin-img" src="gold-coin-icon.png">Price</div>
                 <button class="button">Add to cart</button>
              </div>   
         </div>
@@ -97,10 +99,10 @@
                 <img src = "./item-images/fireball-spell.jpeg" alt="text">
             </div>
             <div class="shelf">
-                <p class="product-name">Spell product</p>
+                <p class="product-name">Fireball</p>
             </div>
             <div class="product-footer">
-                <div value="#">Price</div>
+                <div class="price-tag" value="#"><img class="coin-img" src="gold-coin-icon.png">Price</div>
                 <button class="button">Add to cart</button>
              </div>   
         </div>
@@ -109,10 +111,10 @@
                 <img src = "./item-images/shield-spell.jpeg" alt="text">
             </div>
             <div class="shelf">
-                <p class="product-name">Spell product</p>
+                <p class="product-name">Shield</p>
             </div>
             <div class="product-footer">
-                <div value="#">Price</div>
+                <div class="price-tag" value="#"><img class="coin-img" src="gold-coin-icon.png">Price</div>
                 <button class="button">Add to cart</button>
              </div>   
         </div>
@@ -121,10 +123,10 @@
                 <img src = "./item-images/quicken-spell.jpg" alt="text">
             </div>
             <div class="shelf">
-                <p class="product-name">Spell product</p>
+                <p class="product-name">Quicken</p>
             </div>
             <div class="product-footer">
-                <div value="#">Price</div>
+                <div class="price-tag" value="#"><img class="coin-img" src="gold-coin-icon.png">Price</div>
                 <button class="button">Add to cart</button>
              </div>   
         </div>
@@ -133,10 +135,10 @@
                 <img src = "/item-images/disarm-traps-skill.jpg" alt="text">
             </div>
             <div class="shelf">
-                <p class="product-name">Skill product</p>
+                <p class="product-name">Disarm Traps</p>
             </div>
             <div class="product-footer">
-                <div value="#">Price</div>
+                <div class="price-tag" value="#"><img class="coin-img" src="gold-coin-icon.png">Price</div>
                 <button class="button">Add to cart</button>
              </div>   
         </div>
@@ -145,10 +147,10 @@
                 <img src = "/item-images/acrobatics-skill.jpeg" alt="text">
             </div>
             <div class="shelf">
-                <p class="product-name">Skill product</p>
+                <p class="product-name">Acrobatics</p>
             </div>
             <div class="product-footer">
-                <div value="#">Price</div>
+                <div class="price-tag" value="#"><img class="coin-img" src="gold-coin-icon.png">Price</div>
                 <button class="button">Add to cart</button>
              </div>   
         </div>
@@ -157,10 +159,10 @@
                 <img src = "/item-images/unarmed-combat-skill.jpeg" alt="text">
             </div>
             <div class="shelf">
-                <p class="product-name">Skill product</p>
+                <p class="product-name">Unarmed Combat</p>
             </div>
             <div class="product-footer">
-                <div value="#">Price</div>
+                <div class="price-tag" value="#"><img class="coin-img" src="gold-coin-icon.png">Price</div>
                 <button class="button">Add to cart</button>
              </div>   
         </div>
@@ -169,14 +171,23 @@
                 <img src = "./item-images/dual-wielding-skill.jpg" alt="text">
             </div>
             <div class="shelf">
-                <p class="product-name">Skill product</p>
+                <p class="product-name">Dual Wielding</p>
             </div>
             <div class="product-footer">
-                <div value="#">Price</div>
+                <div class="price-tag" value="#"><img class="coin-img" src="gold-coin-icon.png">Price</div>
                 <button class="button">Add to cart</button>
              </div>   
         </div>
     </div>
+
+<!-- Inventory Items -->
+    <div class="inventory-content">
+        <div class="inventory-container">
+            <!-- this is where the divs that are the items will be pushed to -->
+        </div>
+
+    </div>
+
     <footer class="checkout-area">
         <button>Checkout</button>
     </footer>

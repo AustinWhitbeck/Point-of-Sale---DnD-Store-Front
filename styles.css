@@ -58,7 +58,7 @@ li {
 .main-content {
     display: flex;
     flex-wrap: wrap;
-    justify-content: row;
+    justify-content: column, center;
 }
 
 .shop-item {
@@ -92,12 +92,15 @@ li {
 img {
     height: 200px;
     width: 200px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 
 }
 
 .shelf {
     display: flex;
     justify-content: center;
+    align-items: center;
     height: 46px;
     background-image: url(/item-images/shelf-image.png);
     
@@ -114,4 +117,34 @@ img {
 
 .hidden {
     display: none;
+}
+
+.checkout-area {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* inventory related things */
+
+/* .inventory-content {
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    height: 40px;
+    width: 40px
+} */
+
+.price-tag {
+    color: #745715;
+    font-style: bold;
+    display: flex;
+    justify-content: row;
+}
+
+.coin-img {
+    height: 20px;
+    width: 20px;
+    border-radius: 20px;
+    margin: 0 5px 0 0;
 }
