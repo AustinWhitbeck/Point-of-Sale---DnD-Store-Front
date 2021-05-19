@@ -58,7 +58,7 @@ li {
 .main-content {
     display: flex;
     flex-wrap: wrap;
-    justify-content: column, center;
+    justify-content: center;
 }
 
 .shop-item {
