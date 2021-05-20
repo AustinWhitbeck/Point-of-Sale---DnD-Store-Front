@@ -13,8 +13,15 @@ const headers = document.querySelector('.headers-div');
 const menuItems = document.querySelectorAll('.menu-item');
 const mainContent = document.querySelector('.main-content');
 const cartContent = document.querySelector('.cart-content');
+const cartContainer = document.querySelector('.cart-container');
+const tax = document.querySelector('.tax');
+const subTotal = document.querySelector('.sub-total');
+const total = document.querySelector('.total');
 
 
+let cartItems = [
+
+]
 
 
 headers.addEventListener('click',(event)=> {
@@ -83,4 +90,26 @@ skillsNavButton.addEventListener('click',(event)=> {
         }
     })
     
+})
+
+mainContent.addEventListener('click', (event) => {
+    if (event.target.classList.contains('button')) {
+        let cartItem = {
+            name: event.target.name, 
+            value: parseInt(event.target.value)
+        };
+        cartItems.push(cartItem);
+        console.log(cartItems);
+        let checkout = document.createElement('p');
+        checkout.innerText = `${cartItem.name}/${cartItem.value}`;
+        cartContainer.appendChild(checkout);
+        let currentTotal = 0;
+        cartItems.forEach((i) => {
+            currentTotal += i.value;
+        }) 
+        subTotal.innerText = `${currentTotal}`;
+        tax.innerText = `${currentTotal * 0.06}`;
+        total.innerText = `${currentTotal * 1.06}`;
+
+    } 
 })
