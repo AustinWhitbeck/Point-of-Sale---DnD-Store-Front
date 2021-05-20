@@ -192,6 +192,29 @@
         <!-- this is where the selected items will be
         added to the cart object as an array -->
     </div>
+    <div class="payment-options">
+        <button class="checkoutbtn">Checkout</button>
+        <button class="paybtn paycash">Pay with Cash</button>
+        <button class="paybtn paycard">Pay with Card</button>
+        <div class="cashoption">
+           <form action="#" class="cash-form">
+                <label for="cashinput">Gold amount</label>
+                <input id="cashinput" type="number" name="cashinput">
+                <button id="paywithcashbtn" type="submit">Pay</button>
+        </form>
+        </div>
+        <div class="cardoption">
+            <form class="card-form" action="#">
+                <label for="cardnum">Card Number</label>
+                <input id="cardnum" type="number" name="cardnum">
+                <label for="expiration">Expiration</label>
+                <input id="expiration" type="date" name="expiration">
+                <label for="cvv">CVV</label>
+                <input form="cvv" type="text" name="cvv">
+                <button id="paywithcardbtn" type="submit">Place order</button>
+            </form>
+        </div>
+    </div>
 </div>
     
 <!-- Inventory Items -->
@@ -204,9 +227,9 @@
 
 
 
-    <footer class="checkout-area">
+    <!--<footer class="checkout-area">
         <button>Checkout</button>
-    </footer>
+    </footer>-->
 
 
     <!-- JavaScript -->

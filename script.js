@@ -17,6 +17,8 @@ const cartContainer = document.querySelector('.cart-container');
 const tax = document.querySelector('.tax');
 const subTotal = document.querySelector('.sub-total');
 const total = document.querySelector('.total');
+const cashForm = document.querySelector('.cash-form');
+const cardForm = document.querySelector('.card-form');
 
 
 let cartItems = [
@@ -112,4 +114,13 @@ mainContent.addEventListener('click', (event) => {
         total.innerText = `${currentTotal * 1.06}`;
 
     } 
+})
+
+
+cashForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const formData = new FormData(cashForm);
+    const cashInputVal = formData.get("cashinput");
+    console.log(cashInputVal);
+    //insert if else and pushing stuff
 })
