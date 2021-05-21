@@ -26,11 +26,13 @@ const cardOption = document.querySelector('.cardoption');
 const payWithCashBtn = document.querySelector('#paywithcashbtn');
 const changeDue = document.querySelector('.change-due');
 
-
 let cartItems = [
 
 ]
 
+let inventoryItems = [
+
+]
 
 headers.addEventListener('click',(event)=> {
         if (event.target.innerText === 'Shop'){
@@ -152,13 +154,22 @@ cashForm.addEventListener('submit', (event) => {
     purchaseMessage.innerText = `Thank you for your purchase! We hope you enjoy your shiny new things!`;
     let notEnoughMoney = document.createElement('p');
     notEnoughMoney.innerText = `That's not enough gold friend, got any more?`;
-    //insert if else and pushing stuff
+    //update so inner text gets changed rather than adding new element
     if (cashInputVal > currentTotal){
         let overageDue = (cashInputVal - currentTotal);
         console.log(overageDue);
         // output change due
         changeDue.appendChild(changeAmtDue);
         changeDue.appendChild(purchaseMessage);
+        //console.log(cartItems);
+        inventoryItems = inventoryItems.concat(cartItems);
+        cartItems = [];
+            console.log(inventoryItems);
+           inventoryItems.forEach( (element) => {
+            let inventoryChest = document.createElement('p');
+            inventoryChest.innerText =  `${element.name} - ${element.value}`;
+            inventoryContainer.appendChild(inventoryChest);
+        })
     } else if (cashInputVal == currentTotal){
         // push the cart array to the inventory array
         // pop up message thanking user purchase
@@ -172,17 +183,23 @@ cashForm.addEventListener('submit', (event) => {
 
 
 
+//TODO
+//currently, if you do not have enough money for purchase and you keep submitting, it will add new element 
+//and you get inifinite messages
+//update so it changes innerText rather than adding new element (see vending machine examp;e???)
+
+//style for all cart and inventory related things
+//make cart and inventory with styles: add text to supplement values, currently it is only displaying the bare
+//minimum stuff, so add text around them as well as stylish stuff like borders, centering, whatever looks good
+//also make irrelevant things .hidden
 
 
+//all products (minus the first) require price value (should be a number) and name value to add them to the cart.  use first product
+// as an example.  should be a sort of copy and paste to the other products.
 
-// stay on cart page when finish purchase.
-// do a pop up message that says to check the inventory.
+//styling buttons and anthing else you think could use style
 
-
-// if (goldAmount === total) {
-//     push the cart array to the inventory array
-// } else if (goldAMount > total) {
-//     calculate change then push to inventory array
-// } else {
-//     add more cash
-// }
+//credit card does not work
+//check to make sure fields have any content
+//submit ---> thank you message
+//then push to inventory like with the cash option
