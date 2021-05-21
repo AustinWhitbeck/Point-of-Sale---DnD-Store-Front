@@ -19,6 +19,12 @@ const subTotal = document.querySelector('.sub-total');
 const total = document.querySelector('.total');
 const cashForm = document.querySelector('.cash-form');
 const cardForm = document.querySelector('.card-form');
+const payBtn = document.querySelectorAll('.paybtn');
+const paymentOptions = document.querySelector('.payment-options');
+const cashOption = document.querySelector('.cashoption');
+const cardOption = document.querySelector('.cardoption');
+const payWithCashBtn = document.querySelector('#paywithcashbtn');
+const changeDue = document.querySelector('.change-due');
 
 
 let cartItems = [
@@ -117,10 +123,66 @@ mainContent.addEventListener('click', (event) => {
 })
 
 
+cartContent.addEventListener('click', (event) => {
+    // add code to state nothing is in the cart
+    if (event.target.classList.contains('checkoutbtn')) {
+        payBtn.forEach( variable =>
+            variable.classList.remove('hidden')
+        )
+    } else if (event.target.classList.contains ('paycash')){
+        cashOption.classList.remove('hidden');
+        cardOption.classList.add('hidden');
+    } else if (event.target.classList.contains ('paycard')){
+        cardOption.classList.remove('hidden');
+        cashOption.classList.add('hidden');
+    } 
+})
+
 cashForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const formData = new FormData(cashForm);
     const cashInputVal = formData.get("cashinput");
+    let currentTotal = parseInt(total.innerText);
+    console.log(currentTotal);
     console.log(cashInputVal);
+    console.log(total);
+    let changeAmtDue = document.createElement('p');
+    changeAmtDue.innerText = `Your change back is ${currentTotal}`;
+    let purchaseMessage = document.createElement('p');
+    purchaseMessage.innerText = `Thank you for your purchase! We hope you enjoy your shiny new things!`;
+    let notEnoughMoney = document.createElement('p');
+    notEnoughMoney.innerText = `That's not enough gold friend, got any more?`;
     //insert if else and pushing stuff
+    if (cashInputVal > currentTotal){
+        let overageDue = (cashInputVal - currentTotal);
+        console.log(overageDue);
+        // output change due
+        changeDue.appendChild(changeAmtDue);
+        changeDue.appendChild(purchaseMessage);
+    } else if (cashInputVal == currentTotal){
+        // push the cart array to the inventory array
+        // pop up message thanking user purchase
+        changeDue.appendChild(purchaseMessage);
+    }  else {
+        changeDue.appendChild(notEnoughMoney);
+    }
 })
+
+
+
+
+
+
+
+
+// stay on cart page when finish purchase.
+// do a pop up message that says to check the inventory.
+
+
+// if (goldAmount === total) {
+//     push the cart array to the inventory array
+// } else if (goldAMount > total) {
+//     calculate change then push to inventory array
+// } else {
+//     add more cash
+// }

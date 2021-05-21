@@ -184,8 +184,8 @@
 
 <div class="cart-content">
     <div class="money-due">
-        <p class="tax"></p>
         <p class="sub-total"></p>
+        <p class="tax"></p>
         <p class="total"></p>
     </div>
     <div class="cart-container">
@@ -194,16 +194,19 @@
     </div>
     <div class="payment-options">
         <button class="checkoutbtn">Checkout</button>
-        <button class="paybtn paycash">Pay with Cash</button>
-        <button class="paybtn paycard">Pay with Card</button>
-        <div class="cashoption">
+        <button class="paybtn paycash hidden">Pay with Cash</button>
+        <button class="paybtn paycard hidden">Pay with Card</button>
+        <div class="cashoption hidden">
            <form action="#" class="cash-form">
                 <label for="cashinput">Gold amount</label>
                 <input id="cashinput" type="number" name="cashinput">
                 <button id="paywithcashbtn" type="submit">Pay</button>
+                    <div class="change-due">
+                        
+                    </div>
         </form>
         </div>
-        <div class="cardoption">
+        <div class="cardoption hidden">
             <form class="card-form" action="#">
                 <label for="cardnum">Card Number</label>
                 <input id="cardnum" type="number" name="cardnum">
