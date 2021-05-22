@@ -25,6 +25,7 @@ const cashOption = document.querySelector('.cashoption');
 const cardOption = document.querySelector('.cardoption');
 const payWithCashBtn = document.querySelector('#paywithcashbtn');
 const changeDue = document.querySelector('.change-due');
+const changeDueMessage = document.querySelector('.change-due-message');
 
 let cartItems = [
 
@@ -41,22 +42,22 @@ headers.addEventListener('click',(event)=> {
             inventoryContent.classList.add('hidden');
             cartContent.classList.add('hidden');
         } else if (event.target.innerText === 'Cart') {
-            console.log('cart');
+            cartContent.classList.remove('hidden');
             mainContent.classList.add('hidden');
             inventoryContent.classList.add('hidden');
             shopOptions.classList.add('hidden');
-            cartContent.classList.remove('hidden');
         } else if (event.target.innerText === 'Inventory') {
             console.log('inventory');
-            mainContent.classList.add('hidden');
             inventoryContent.classList.remove('hidden');
+            mainContent.classList.add('hidden');
             shopOptions.classList.add('hidden');
+            cartContent.classList.add('hidden');
         } 
 })
 
 //  this can be condensed into one event listener for the nav bar.
 // this will look for the class of the nav li and then execute the below click
-// currently this is set up taht it would be an event listener for each of the nav buttons, however we can
+// currently this is set up that it would be an event listener for each of the nav buttons, however we can
 // condense this down into one event listener for a click on any of the nav buttons.
 
 
@@ -109,8 +110,8 @@ mainContent.addEventListener('click', (event) => {
             value: parseInt(event.target.value)
         };
         cartItems.push(cartItem);
-        console.log(cartItems);
         let checkout = document.createElement('p');
+        checkout.classList.add('checkout-item');
         checkout.innerText = `${cartItem.name}/${cartItem.value}`;
         cartContainer.appendChild(checkout);
         let currentTotal = 0;
@@ -131,12 +132,12 @@ cartContent.addEventListener('click', (event) => {
         payBtn.forEach( variable =>
             variable.classList.remove('hidden')
         )
-    } else if (event.target.classList.contains ('paycash')){
-        cashOption.classList.remove('hidden');
-        cardOption.classList.add('hidden');
-    } else if (event.target.classList.contains ('paycard')){
-        cardOption.classList.remove('hidden');
-        cashOption.classList.add('hidden');
+        } else if (event.target.classList.contains ('paycash')){
+            cashOption.classList.remove('hidden');
+            cardOption.classList.add('hidden');
+        } else if (event.target.classList.contains ('paycard')){
+            cardOption.classList.remove('hidden');
+            cashOption.classList.add('hidden');
     } 
 })
 
@@ -145,38 +146,42 @@ cashForm.addEventListener('submit', (event) => {
     const formData = new FormData(cashForm);
     const cashInputVal = formData.get("cashinput");
     let currentTotal = parseInt(total.innerText);
-    console.log(currentTotal);
-    console.log(cashInputVal);
-    console.log(total);
-    let changeAmtDue = document.createElement('p');
-    changeAmtDue.innerText = `Your change back is ${currentTotal}`;
-    let purchaseMessage = document.createElement('p');
-    purchaseMessage.innerText = `Thank you for your purchase! We hope you enjoy your shiny new things!`;
-    let notEnoughMoney = document.createElement('p');
-    notEnoughMoney.innerText = `That's not enough gold friend, got any more?`;
-    //update so inner text gets changed rather than adding new element
-    if (cashInputVal > currentTotal){
-        let overageDue = (cashInputVal - currentTotal);
-        console.log(overageDue);
-        // output change due
-        changeDue.appendChild(changeAmtDue);
-        changeDue.appendChild(purchaseMessage);
-        //console.log(cartItems);
-        inventoryItems = inventoryItems.concat(cartItems);
-        cartItems = [];
-            console.log(inventoryItems);
-           inventoryItems.forEach( (element) => {
-            let inventoryChest = document.createElement('p');
-            inventoryChest.innerText =  `${element.name} - ${element.value}`;
-            inventoryContainer.appendChild(inventoryChest);
-        })
-    } else if (cashInputVal == currentTotal){
-        // push the cart array to the inventory array
-        // pop up message thanking user purchase
-        changeDue.appendChild(purchaseMessage);
-    }  else {
-        changeDue.appendChild(notEnoughMoney);
-    }
+        if (cashInputVal > currentTotal){
+            let overageDue = (cashInputVal - currentTotal);
+            console.log(overageDue);
+            // output change due
+            changeDueMessage.innerText = `Your change back is ${overageDue}. Thank you for your purchase!`;
+            inventoryItems = inventoryItems.concat(cartItems);
+            cartItems = [];
+                console.log(inventoryItems);
+            inventoryItems.forEach( (element) => {
+                let inventoryChest = document.createElement('p');
+                inventoryChest.classList.add('inventory-purchased-items');
+                inventoryChest.innerText =  `${element.name} - ${element.value}`;
+                inventoryContainer.appendChild(inventoryChest);
+            })
+
+        // first attempt at removing the p tags from teh cartContainer after purchasing them //
+            // cartContainer.forEach( (element) => {
+            //     console.log(element);
+            //     if (element.classList.contains('checkout-item')){
+            //         cartContainer.removeChild(element);
+            //     }
+            // })
+            cartItems = [];
+            console.log(cartItems);
+            } else if (cashInputVal == currentTotal){
+
+            // this can be turned into a functions since it is used at teh end of needing change as well
+            inventoryItems.forEach( (element) => {
+                let inventoryChest = document.createElement('p');
+                inventoryChest.innerText =  `${element.name} - ${element.value}`;
+                inventoryContainer.appendChild(inventoryChest);
+            })
+            changeDueMessage.innerText = `Thank you for your purchase! We hope you enjoy your shiny new things!`;
+            }  else {
+            changeDueMessage.innerText = `That's not enough gold friend, got any more?`;
+        }
 })
 
 
@@ -187,6 +192,7 @@ cashForm.addEventListener('submit', (event) => {
 //currently, if you do not have enough money for purchase and you keep submitting, it will add new element 
 //and you get inifinite messages
 //update so it changes innerText rather than adding new element (see vending machine examp;e???)
+    ///// COMPLETED ////
 
 //style for all cart and inventory related things
 //make cart and inventory with styles: add text to supplement values, currently it is only displaying the bare
@@ -196,6 +202,7 @@ cashForm.addEventListener('submit', (event) => {
 
 //all products (minus the first) require price value (should be a number) and name value to add them to the cart.  use first product
 // as an example.  should be a sort of copy and paste to the other products.
+    /////// COMPLETED /////
 
 //styling buttons and anthing else you think could use style
 
@@ -203,3 +210,4 @@ cashForm.addEventListener('submit', (event) => {
 //check to make sure fields have any content
 //submit ---> thank you message
 //then push to inventory like with the cash option
+
