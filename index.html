@@ -12,26 +12,35 @@
 <body>
     <h1 class="title">Believe in Magic Shop</h1>
 
-    <div class="headers-div">
-        <div class="menu-options">
-            <div class="menu-item">Shop</div>
-            <div class="menu-item">Cart</div>
-            <div class="menu-item">Inventory</div>
+    <header class="navigation-header">
+        <div class="navigation-options-container">
+            <div class="headers-div">
+                    <div class="menu-options">
+                        <div class="menu-item">Shop</div>
+                        <div class="menu-item">Cart</div>
+                        <div class="menu-item" id="inventory-nav-button">Inventory</div>
+                    </div>
+                </div>
+                <nav class="shop-options">
+                    <ul>
+                        <li class="product-category" id="all-options">All</li>
+                        <li class="product-category" id="equip-nav">Equipment</li>
+                        <li class="product-category" id="spells-nav">Spells</li>
+                        <li class="product-category" id="skills-nav">Skills</li>
+                    </ul>
+                </nav>
+            </div>
+        <div class="shopkeeper-div">
+            <p class="shopkeeper-message">"Welcome Traveler!"</p>
+            <div class="shopkeeper-img-container"><img class="shopkeeper-image" src="shopkeeper-img.jpg" alt="fantasy shopkeeper"></div>
+
         </div>
-    </div>
-    <nav class="shop-options">
-        <ul>
-            <li class="product-category" id="all-options">All</li>
-            <li class="product-category" id="equip-nav">Equipment</li>
-            <li class="product-category" id="spells-nav">Spells</li>
-            <li class="product-category" id="skills-nav">Skills</li>
-        </ul>
-    </nav>
+    </header>
 
 
 
 
-
+<div class="desktop-container">
 <!-- Shop elements -->
     <div class="main-content">
         <div class="shop-item image-container-equip">
@@ -182,7 +191,7 @@
 
 <!-- Cart items -->
 
-<div class="cart-content">
+<div class="cart-content hidden">
     <div class="money-due">
         <p class="sub-total"></p>
         <p class="tax"></p>
@@ -201,9 +210,9 @@
                 <label for="cashinput">Gold amount</label>
                 <input id="cashinput" type="number" name="cashinput">
                 <button id="paywithcashbtn" type="submit">Pay</button>
-                    <div class="change-due">
+                    <!-- <div class="change-due">
                         <p class="change-due-message"></p>
-                    </div>
+                    </div> -->
         </form>
         </div>
         <div class="cardoption hidden">
@@ -217,17 +226,31 @@
                 <button id="paywithcardbtn" type="submit">Place order</button>
             </form>
         </div>
+        <div class="change-due">
+            <p class="change-due-message"></p>
+        </div>
     </div>
 </div>
     
 <!-- Inventory Items -->
-    <div class="inventory-content">
+    <div class="inventory-content hidden">
         <div class="inventory-container">
             <p class="my-inventory-title">My Inventory</p>
             <!-- this is where the divs that are the items will be pushed to -->
         </div>
 
     </div>
+
+
+<!-- desktop version, inventory showing with next to shop/cart. -->
+    <div class="desktop-inv">
+        <div class="desktop-inv-container">
+            <p class="my-inventory-title">My Inventory</p>
+            <!-- push cartItems to this div as well, after purchased -->
+        </div>
+    </div>
+<!-- desktop container end -->
+</div>
 
 
 

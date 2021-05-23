@@ -9,6 +9,7 @@ const shopitems = document.querySelectorAll('.shop-item');
 const shopOptions = document.querySelector('.shop-options');
 const inventoryContainer = document.querySelector('.inventory-container');
 const inventoryContent = document.querySelector('.inventory-content');
+const desktopInventoryContainer = document.querySelector('.desktop-inv-container');
 const headers = document.querySelector('.headers-div');
 const menuItems = document.querySelectorAll('.menu-item');
 const mainContent = document.querySelector('.main-content');
@@ -26,6 +27,7 @@ const cardOption = document.querySelector('.cardoption');
 const payWithCashBtn = document.querySelector('#paywithcashbtn');
 const changeDue = document.querySelector('.change-due');
 const changeDueMessage = document.querySelector('.change-due-message');
+const shopkeepMessage = document.querySelector('.shopkeeper-message');
 
 let cartItems = [
 
@@ -41,6 +43,7 @@ headers.addEventListener('click',(event)=> {
             shopOptions.classList.remove('hidden');
             inventoryContent.classList.add('hidden');
             cartContent.classList.add('hidden');
+            shopkeepMessage.innerText = `"Welcome Traveler!"`;
         } else if (event.target.innerText === 'Cart') {
             cartContent.classList.remove('hidden');
             mainContent.classList.add('hidden');
@@ -65,7 +68,8 @@ allNavButton.addEventListener('click',(event)=> {
     shopitems.forEach((element) => {
         if (element.classList.contains('hidden')){
             element.classList.remove('hidden');
-        } 
+        }
+        shopkeepMessage.innerText = `"All manner of wonders to purchase."`;
     })
     
 })
@@ -77,6 +81,7 @@ equipNavButton.addEventListener('click',(event)=> {
         } else {
             element.classList.add('hidden');
         }
+        shopkeepMessage.innerText = `"Fancy some new gear today, Traveler?"`;
     })
     
 })
@@ -88,6 +93,7 @@ spellsNavButton.addEventListener('click',(event)=> {
         } else {
             element.classList.add('hidden');
         }
+        shopkeepMessage.innerText = `"Ahh, a young mage, are you?"`;
     })
     
 })
@@ -99,12 +105,14 @@ skillsNavButton.addEventListener('click',(event)=> {
         } else {
             element.classList.add('hidden');
         }
+        shopkeepMessage.innerText = `"A seeker of knowledge I see!"`;
     })
     
 })
 
 mainContent.addEventListener('click', (event) => {
     if (event.target.classList.contains('button')) {
+        shopkeepMessage.innerText = `That will serve you well Traveler`;
         let cartItem = {
             name: event.target.name, 
             value: parseInt(event.target.value)
@@ -118,9 +126,9 @@ mainContent.addEventListener('click', (event) => {
         cartItems.forEach((i) => {
             currentTotal += i.value;
         }) 
-        subTotal.innerText = `${currentTotal}`;
-        tax.innerText = `${currentTotal * 0.06}`;
-        total.innerText = `${currentTotal * 1.06}`;
+        subTotal.innerText = `Subt total: ${currentTotal}`;
+        tax.innerText = `Tax: ${currentTotal * 0.06}`;
+        total.innerText = `Total: ${currentTotal * 1.06}`;
 
     } 
 })
@@ -151,14 +159,23 @@ cashForm.addEventListener('submit', (event) => {
             console.log(overageDue);
             // output change due
             changeDueMessage.innerText = `Your change back is ${overageDue}. Thank you for your purchase!`;
+            shopkeepMessage.innerText = `Excellent purchase Traveler!`;
             inventoryItems = inventoryItems.concat(cartItems);
             cartItems = [];
                 console.log(inventoryItems);
+            // mobile inventory code - add items to inventory
             inventoryItems.forEach( (element) => {
                 let inventoryChest = document.createElement('p');
                 inventoryChest.classList.add('inventory-purchased-items');
                 inventoryChest.innerText =  `${element.name} - ${element.value}`;
                 inventoryContainer.appendChild(inventoryChest);
+            })
+            // desktop inventory code - add items to inventory
+            inventoryItems.forEach( (element) => {
+                let inventoryChest = document.createElement('p');
+                inventoryChest.classList.add('inventory-purchased-items');
+                inventoryChest.innerText =  `${element.name} - ${element.value}`;
+                desktopInventoryContainer.appendChild(inventoryChest);
             })
 
         // first attempt at removing the p tags from teh cartContainer after purchasing them //
@@ -178,9 +195,18 @@ cashForm.addEventListener('submit', (event) => {
                 inventoryChest.innerText =  `${element.name} - ${element.value}`;
                 inventoryContainer.appendChild(inventoryChest);
             })
+             // desktop inventory code - add items to inventory
+             inventoryItems.forEach( (element) => {
+                let inventoryChest = document.createElement('p');
+                inventoryChest.classList.add('inventory-purchased-items');
+                inventoryChest.innerText =  `${element.name} - ${element.value}`;
+                desktopInventoryContainer.appendChild(inventoryChest);
+            })
             changeDueMessage.innerText = `Thank you for your purchase! We hope you enjoy your shiny new things!`;
+            shopkeepMessage.innerText = `"Excellent purchase Traveler!"`;
             }  else {
             changeDueMessage.innerText = `That's not enough gold friend, got any more?`;
+            shopkeepMessage.innerText = `"Hm, maybe check the job board by the Arcanium?"`;
         }
 })
 

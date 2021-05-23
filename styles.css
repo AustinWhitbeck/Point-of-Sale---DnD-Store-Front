@@ -163,6 +163,8 @@ button {
     color: white;
     border-radius: 6px;
     width: 80px;
+    max-height: 50px;
+    margin: 2px;
 }
 
 button:active {
@@ -181,6 +183,38 @@ button:active {
     font-size: 30px;
 }
 
+.payment-options {
+    display: flex;
+    justify-content: center;
+}
+
+.desktop-inv {
+    display: none;
+}
+
+.shopkeeper-div {
+    display: none;
+}
+
+.navigation-header {
+    display: flex;
+    justify-content: center;
+}
+
+.shopkeeper-message {
+    background-color: gray;
+    color:skyblue;
+    border-radius: 5px;
+    padding: 10px;
+    max-height: 150px;
+    margin: 10px 0 0 0;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.change-due-message {
+    margin: 4px;
+}
 
 /* Desktop version settings */
 
@@ -191,5 +225,52 @@ button:active {
     .main-content {
         display: flex;
         flex-wrap: wrap;
+        flex-direction: row;
     }
+
+    .desktop-container {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .desktop-inv {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 400px;
+        border-radius: 10px;
+        border-style: solid;
+        border-color: rgb(80, 71, 63);
+        margin: 0 40px 0 0;
+        background-color: rgb(119, 106, 92);
+    }
+
+    .desktop-inv-container {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 40px;
+    }
+
+    .shopkeeper-div {
+        display: flex;
+        margin: 0 0 0 40px;
+    }
+
+    .shopkeeper-img-container {
+        margin: 0 0 0 10px;
+    }
+
+    .shopkeeper-image {
+        border-radius: 20px;
+        border-style: solid;
+        border-color: gray;
+    }
+
+    #inventory-nav-button {
+        display: none;
+    }
+
 }
