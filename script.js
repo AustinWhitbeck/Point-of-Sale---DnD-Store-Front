@@ -28,6 +28,8 @@ const payWithCashBtn = document.querySelector('#paywithcashbtn');
 const changeDue = document.querySelector('.change-due');
 const changeDueMessage = document.querySelector('.change-due-message');
 const shopkeepMessage = document.querySelector('.shopkeeper-message');
+const mobileDescription = document.querySelectorAll('.description-container');
+const images = document.querySelectorAll('.image-container');
 
 let cartItems = [
 
@@ -126,9 +128,9 @@ mainContent.addEventListener('click', (event) => {
         cartItems.forEach((i) => {
             currentTotal += i.value;
         }) 
-        subTotal.innerText = `Subt total: ${currentTotal}`;
-        tax.innerText = `Tax: ${currentTotal * 0.06}`;
-        total.innerText = `Total: ${currentTotal * 1.06}`;
+        subTotal.innerText = currentTotal;
+        tax.innerText = currentTotal * 0.06;
+        total.innerText = currentTotal * 1.06;
 
     } 
 })
@@ -210,6 +212,13 @@ cashForm.addEventListener('submit', (event) => {
         }
 })
 
+function brandtChirpusDescription (event) {
+    if (event.target.classList.contains('image-container')) {
+        event.target.lastElementChild.classList.remove('hidden');
+    }
+}
+
+mainContent.addEventListener('click', brandtChirpusDescription);
 
 
 

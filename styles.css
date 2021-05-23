@@ -7,8 +7,17 @@ body {
     margin: 2px;
     padding: 0;
 }
+header {
+    display: flex;
+    flex-direction: column;
+    background-image: url(/item-images/shop-background2.jpeg);
+    background-size: cover;
+}
 h1 {
     text-align: center;
+    font-size: 60px;
+    color: white;
+
 }
 
 .menu-options {
@@ -16,7 +25,7 @@ h1 {
     width: 500px;
     margin: auto;
     padding: 10px;
-    background-color: rgb(161, 117, 88);
+    background-color: rgb(161, 117, 88, .7);
     justify-content: space-around;
     border-radius: 10px;
 }
@@ -37,7 +46,7 @@ nav {
     width: 500px;
     margin: auto;
     margin-top: 20px;
-    background-color: rgb(161, 117, 88);
+    background-color: rgb(161, 117, 88, .7);
     border-radius: 10px;
 
 }
@@ -65,10 +74,18 @@ li {
 }
 
 .main-content {
+    max-width: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: solid #48251b 5px;
+    margin: 20px auto;
+    background-color: #904a37;
+    background-image: url(/item-images/woodgrain2.jpg);
+    border-radius: 10px;
+    
+
 }
 
 .shop-item {
@@ -79,9 +96,9 @@ li {
     margin: 20px 20px;
     justify-content: space-between;
     border-radius: 20px;
-    background-color: rgb(222, 184, 135);
-
+    background-color: rgb(222, 184, 135, .4);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
     
 }
 
@@ -113,7 +130,6 @@ img {
     align-items: center;
     height: 46px;
     background-image: url(/item-images/shelf-image.png);
-    
 }
 
 .product-name {
@@ -123,6 +139,27 @@ img {
     background-size: contain;
     margin: 0;
     text-align: center;
+}
+
+.description-container {
+    display: flex;
+    position: fixed;
+    transform: translateX(-24%);
+    bottom: 10px;
+    z-index: 1;
+    height: 50px;
+    border: solid #48251b 2px;
+    border-radius: 10px;
+    background-color: rgb(222, 184, 135, .4);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.brandt-chirpus-container {
+    background-image: url(/shopkeeper-img.jpg);
+    background-size: contain;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
 }
 
 .hidden {
@@ -155,6 +192,7 @@ img {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    
 }
 
 button {
@@ -194,6 +232,7 @@ button:active {
 
 .shopkeeper-div {
     display: none;
+    align-self: flex-end;
 }
 
 .navigation-header {
@@ -220,14 +259,14 @@ button:active {
 
 
 
-@media only screen and (min-width:750px) {
+@media only screen and (min-width:768px) {
     
     .main-content {
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
+        max-width: 900px;
     }
-
     .desktop-container {
         display: flex;
         justify-content: space-around;
@@ -244,7 +283,7 @@ button:active {
         border-radius: 10px;
         border-style: solid;
         border-color: rgb(80, 71, 63);
-        margin: 0 40px 0 0;
+        margin: 20px 40px 20px 20px;
         background-color: rgb(119, 106, 92);
     }
 
