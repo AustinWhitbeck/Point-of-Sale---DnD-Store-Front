@@ -215,7 +215,7 @@ cashForm.addEventListener('submit', (event) => {
 })
 
 function brandtChirpusDescription (event) {
-    if ($(window).width() >= 768 && event.target.classList.contains('img')) {
+    if (window.innerWidth >= 768 && event.target.classList.contains('img')) {
         shopkeepMessage.innerText = event.target.nextElementSibling.innerText;
     } else if (event.target.classList.contains('img')) {
         function removeHiddenClass () {

@@ -171,6 +171,18 @@ img {
     justify-content: center;
 }
 
+.cart-content {
+    background-color: rgb(139, 129, 129);
+    border: solid black 2px;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+}
+
+.my-cart-title {
+    font-size: 30px;
+    text-align: center;
+}
 
 .price-tag {
     color: #745715;
