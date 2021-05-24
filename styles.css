@@ -1,7 +1,7 @@
 body {
     font-family: 'Amatic SC';
     font-size: 20px;
-    background-color: tan;
+    background-color: black;
     /* background-image: url(/item-images/shop-background2.jpeg);
     background-size: cover; */
     margin: 2px;
@@ -260,7 +260,9 @@ button:active {
 
 
 @media only screen and (min-width:768px) {
-    
+    body {
+        background-color: tan;
+    }
     .main-content {
         display: flex;
         flex-wrap: wrap;
@@ -297,6 +299,14 @@ button:active {
         display: flex;
         margin: 0 0 0 40px;
     }
+    .description-container {
+        position: static;
+        z-index: 3;
+        height: 50px;
+        border: none;
+        background-color: none;
+        box-shadow: none;
+    }
 
     .shopkeeper-img-container {
         margin: 0 0 0 10px;
@@ -312,4 +322,7 @@ button:active {
         display: none;
     }
 
+    .brandt-chirpus-container {
+        display: none;
+    }
 }

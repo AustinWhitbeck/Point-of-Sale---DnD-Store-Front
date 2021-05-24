@@ -30,7 +30,9 @@ const changeDueMessage = document.querySelector('.change-due-message');
 const shopkeepMessage = document.querySelector('.shopkeeper-message');
 const mobileDescription = document.querySelectorAll('.description-container');
 const images = document.querySelectorAll('.image-container');
-
+const productDescription = document.querySelectorAll('.description');
+const shopkeepDiv = document.querySelector('.shopkeeper-div');
+const pageBackground = document.querySelector('body');
 let cartItems = [
 
 ]
@@ -213,9 +215,9 @@ cashForm.addEventListener('submit', (event) => {
 })
 
 function brandtChirpusDescription (event) {
-    
-    if (event.target.classList.contains('img')) {
-        
+    if ($(window).width() >= 768 && event.target.classList.contains('img')) {
+        shopkeepMessage.innerText = event.target.nextElementSibling.innerText;
+    } else if (event.target.classList.contains('img')) {
         function removeHiddenClass () {
             event.target.nextElementSibling.classList.remove('hidden');
             function addHiddenClass () {
@@ -228,7 +230,6 @@ function brandtChirpusDescription (event) {
 }
 
 mainContent.addEventListener('click', brandtChirpusDescription);
-
 
 
 
