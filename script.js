@@ -47,7 +47,7 @@ headers.addEventListener('click',(event)=> {
             shopOptions.classList.remove('hidden');
             inventoryContent.classList.add('hidden');
             cartContent.classList.add('hidden');
-            shopkeepMessage.innerText = `"Welcome Traveler!"`;
+            shopkeepMessage.innerText = `"What might you be looking for?"`;
         } else if (event.target.innerText === 'Cart') {
             cartContent.classList.remove('hidden');
             mainContent.classList.add('hidden');
@@ -109,7 +109,7 @@ skillsNavButton.addEventListener('click',(event)=> {
         } else {
             element.classList.add('hidden');
         }
-        shopkeepMessage.innerText = `"A seeker of knowledge I see!"`;
+        shopkeepMessage.innerText = `"A seeker of knowledge I see! Just like my cousin Grant."`;
     })
     
 })
@@ -165,8 +165,6 @@ cashForm.addEventListener('submit', (event) => {
             changeDueMessage.innerText = `Your change back is ${overageDue}. Thank you for your purchase!`;
             shopkeepMessage.innerText = `Excellent purchase Traveler!`;
             inventoryItems = inventoryItems.concat(cartItems);
-            cartItems = [];
-                console.log(inventoryItems);
             // mobile inventory code - add items to inventory
             inventoryItems.forEach( (element) => {
                 let inventoryChest = document.createElement('p');
@@ -189,7 +187,6 @@ cashForm.addEventListener('submit', (event) => {
             //         cartContainer.removeChild(element);
             //     }
             // })
-            cartItems = [];
             console.log(cartItems);
             } else if (cashInputVal == currentTotal){
 
@@ -212,6 +209,25 @@ cashForm.addEventListener('submit', (event) => {
             changeDueMessage.innerText = `That's not enough gold friend, got any more?`;
             shopkeepMessage.innerText = `"Hm, maybe check the job board by the Arcanium?"`;
         }
+})
+
+cardForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    inventoryItems = inventoryItems.concat(cartItems);
+            // mobile inventory code - add items to inventory
+            inventoryItems.forEach( (element) => {
+                let inventoryChest = document.createElement('p');
+                inventoryChest.classList.add('inventory-purchased-items');
+                inventoryChest.innerText =  `${element.name} - ${element.value}`;
+                inventoryContainer.appendChild(inventoryChest);
+            })
+            // desktop inventory code - add items to inventory
+            inventoryItems.forEach( (element) => {
+                let inventoryChest = document.createElement('p');
+                inventoryChest.classList.add('inventory-purchased-items');
+                inventoryChest.innerText =  `${element.name} - ${element.value}`;
+                desktopInventoryContainer.appendChild(inventoryChest);
+            })
 })
 
 function brandtChirpusDescription (event) {

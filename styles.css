@@ -7,6 +7,11 @@ body {
     margin: 2px;
     padding: 0;
 }
+
+.title {
+    color: rgb(223, 223, 223);
+
+}
 header {
     display: flex;
     flex-direction: column;
@@ -198,6 +203,10 @@ img {
     margin: 0 5px 0 0;
 }
 
+.coin-amnt {
+    color: black;
+}
+
 .inventory-container {
     display: flex;
     flex-direction: column;
@@ -227,6 +236,7 @@ button:active {
     background-color: rgb(119, 106, 92);
     color: gold;
     border-radius: 5px;
+    padding: 8px;
 }
 
 .my-inventory-title {
@@ -253,7 +263,7 @@ button:active {
 }
 
 .shopkeeper-message {
-    background-color: gray;
+    background-color: rgba(128, 128, 128, 0.863);
     color:skyblue;
     border-radius: 5px;
     padding: 10px;
@@ -267,6 +277,16 @@ button:active {
     margin: 4px;
 }
 
+.money-value-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.cart-items-pre-checkout {
+    text-align: center;
+}
+
 /* Desktop version settings */
 
 
@@ -274,6 +294,9 @@ button:active {
 @media only screen and (min-width:768px) {
     body {
         background-color: tan;
+    }
+    p {
+        margin: 0 0 0 5px;
     }
     .main-content {
         display: flex;
@@ -337,4 +360,5 @@ button:active {
     .brandt-chirpus-container {
         display: none;
     }
+
 }
