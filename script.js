@@ -213,9 +213,18 @@ cashForm.addEventListener('submit', (event) => {
 })
 
 function brandtChirpusDescription (event) {
-    if (event.target.classList.contains('image-container')) {
-        event.target.lastElementChild.classList.remove('hidden');
-    }
+    
+    if (event.target.classList.contains('img')) {
+        
+        function removeHiddenClass () {
+            event.target.nextElementSibling.classList.remove('hidden');
+            function addHiddenClass () {
+                event.target.nextElementSibling.classList.add('hidden');
+            }
+            setTimeout(addHiddenClass, 2000);
+        }    
+        removeHiddenClass();
+    } 
 }
 
 mainContent.addEventListener('click', brandtChirpusDescription);
