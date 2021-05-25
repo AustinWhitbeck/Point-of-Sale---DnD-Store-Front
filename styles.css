@@ -287,6 +287,37 @@ button:active {
     text-align: center;
 }
 
+.checkoutbtn {
+    padding: 5px;
+    background-color:rgb(156, 9, 38);
+    border-style: solid;
+    border-width: solid;
+    border-color:black;
+}
+
+#paywithcashbtn {
+    background-color:rgb(156, 9, 38);
+    border-style: solid;
+    border-width: solid;
+    border-color: black;
+ 
+}
+
+.paybtn {
+    background-color: rgb(156, 9, 38);
+    border-style: solid;
+    border-width: solid;
+    border-color: black;
+}
+
+#paywithcardbtn {
+    background-color: rgb(156, 9, 38);
+    border-style: solid;
+    border-width: solid;
+    border-color: black;
+
+}
+
 /* Desktop version settings */
 
 
@@ -361,4 +392,34 @@ button:active {
         display: none;
     }
 
+    .checkoutbtn {
+        padding: 5px;
+        background-color:rgb(156, 9, 38);
+        border-style: solid;
+        border-width: solid;
+        border-color:black;
+    }
+    
+    #paywithcashbtn {
+        background-color:rgb(156, 9, 38);
+        border-style: solid;
+        border-width: solid;
+        border-color: black;
+     
+    }
+    
+    .paybtn {
+        background-color: rgb(156, 9, 38);
+        border-style: solid;
+        border-width: solid;
+        border-color: black;
+    }
+    
+    #paywithcardbtn {
+        background-color: rgb(156, 9, 38);
+        border-style: solid;
+        border-width: solid;
+        border-color: black;
+    
+    }
 }
