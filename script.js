@@ -243,14 +243,14 @@ cardForm.addEventListener('submit', (event) => {
     event.preventDefault();
     inventoryItems = inventoryItems.concat(cartItems);
             // mobile inventory code - add items to inventory
-            inventoryItems.forEach( (element) => {
+            cartItems.forEach( (element) => {
                 let inventoryChest = document.createElement('p');
                 inventoryChest.classList.add('inventory-purchased-items');
                 inventoryChest.innerText =  `${element.name} - ${element.value}`;
                 inventoryContainer.appendChild(inventoryChest);
             })
             // desktop inventory code - add items to inventory
-            inventoryItems.forEach( (element) => {
+            cartItems.forEach( (element) => {
                 let inventoryChest = document.createElement('p');
                 inventoryChest.classList.add('inventory-purchased-items');
                 inventoryChest.innerText =  `${element.name} - ${element.value}`;
