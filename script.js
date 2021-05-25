@@ -33,6 +33,9 @@ const images = document.querySelectorAll('.image-container');
 const productDescription = document.querySelectorAll('.description');
 const shopkeepDiv = document.querySelector('.shopkeeper-div');
 const pageBackground = document.querySelector('body');
+const cartContainerAll = document.querySelectorAll('.checkout-item');
+const firstSibling = document.querySelector('.cart-items-pre-checkout');
+
 let cartItems = [
 
 ]
@@ -40,6 +43,22 @@ let cartItems = [
 let inventoryItems = [
 
 ]
+
+function emptyCart() {
+//    let nextSibling = firstSibling.nextElementSibling;
+//    while(nextSibling) {
+//        nextSibling.remove();
+
+// cartContainer.forEach( (element) => {
+//     console.log(element);
+//     if (element.classList.contains('checkout-item')){
+//             element.remove();
+//        }
+//     })
+    cartContainer.innerHTML = '';
+    cartItems = [] 
+}
+
 
 headers.addEventListener('click',(event)=> {
         if (event.target.innerText === 'Shop'){
@@ -113,7 +132,7 @@ skillsNavButton.addEventListener('click',(event)=> {
     })
     
 })
-
+//let checkout = document.createElement('p');
 mainContent.addEventListener('click', (event) => {
     if (event.target.classList.contains('button')) {
         shopkeepMessage.innerText = `That will serve you well Traveler`;
@@ -153,6 +172,14 @@ cartContent.addEventListener('click', (event) => {
     } 
 })
 
+function totalReset() {
+    total.innerText = 0,
+    subTotal.innerText = 0
+    tax.innerText = 0
+}
+
+
+
 cashForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const formData = new FormData(cashForm);
@@ -166,19 +193,15 @@ cashForm.addEventListener('submit', (event) => {
             shopkeepMessage.innerText = `Excellent purchase Traveler!`;
             inventoryItems = inventoryItems.concat(cartItems);
             // mobile inventory code - add items to inventory
-            inventoryItems.forEach( (element) => {
+            cartItems.forEach( (element) => {
                 let inventoryChest = document.createElement('p');
                 inventoryChest.classList.add('inventory-purchased-items');
                 inventoryChest.innerText =  `${element.name} - ${element.value}`;
                 inventoryContainer.appendChild(inventoryChest);
-            })
-            // desktop inventory code - add items to inventory
-            inventoryItems.forEach( (element) => {
-                let inventoryChest = document.createElement('p');
-                inventoryChest.classList.add('inventory-purchased-items');
-                inventoryChest.innerText =  `${element.name} - ${element.value}`;
                 desktopInventoryContainer.appendChild(inventoryChest);
             })
+            totalReset();
+            emptyCart();
 
         // first attempt at removing the p tags from teh cartContainer after purchasing them //
             // cartContainer.forEach( (element) => {
@@ -187,15 +210,20 @@ cashForm.addEventListener('submit', (event) => {
             //         cartContainer.removeChild(element);
             //     }
             // })
+
+            
+
             console.log(cartItems);
             } else if (cashInputVal == currentTotal){
 
             // this can be turned into a functions since it is used at teh end of needing change as well
-            inventoryItems.forEach( (element) => {
+            cartItems.forEach( (element) => {
                 let inventoryChest = document.createElement('p');
                 inventoryChest.innerText =  `${element.name} - ${element.value}`;
                 inventoryContainer.appendChild(inventoryChest);
-            })
+            }) 
+            totalReset();
+            emptyCart();
              // desktop inventory code - add items to inventory
              inventoryItems.forEach( (element) => {
                 let inventoryChest = document.createElement('p');
@@ -228,7 +256,10 @@ cardForm.addEventListener('submit', (event) => {
                 inventoryChest.innerText =  `${element.name} - ${element.value}`;
                 desktopInventoryContainer.appendChild(inventoryChest);
             })
+            totalReset();
+            emptyCart();
 })
+
 
 function brandtChirpusDescription (event) {
     if (window.innerWidth >= 768 && event.target.classList.contains('img')) {
